@@ -12,8 +12,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="367dp"
-        android:layout_height="639dp"
+        android:layout_width="365dp"
+        android:layout_height="606dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,7 +27,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewPuntuacionId"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="618dp"
             android:background="#9E7B59" />
 
     </androidx.cardview.widget.CardView>

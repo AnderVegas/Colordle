@@ -1,70 +1,68 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="4dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="8dp"
         android:background="#E6D7BC">
 
-        <!-- Imagen arriba en grid view -->
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="42dp"
-            android:layout_height="38dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground" />
-
         <TextView
             android:id="@+id/textViewPuesto"
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1"
+            android:layout_width="29dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
             android:gravity="center"
             android:text="Puesto"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewNombre"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:text="Título del ítem"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/textViewPuesto"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/textViewIntentos"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <TextView
             android:id="@+id/textViewIntentos"
-            android:layout_width="wrap_content"
+            android:layout_width="76dp"
             android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1"
-            android:gravity="right|center"
+            android:gravity="center"
             android:text="IntentosNumero"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/textViewTiempo"
+            android:layout_marginEnd="8dp" />
 
         <TextView
-            android:id="@+id/textViewIntentosText"
-            android:layout_width="106dp"
+            android:id="@+id/textViewTiempo"
+            android:layout_width="83dp"
             android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
             android:gravity="center"
-            android:text="Intentos"
-            android:textSize="14sp" />
+            android:text="Tiempo"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

@@ -1,5 +1,6 @@
 package com.ander.colordle.adapters;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,9 +35,7 @@ public class DataAdapterPuntuacion extends RecyclerView.Adapter<DataAdapterPuntu
 
     @Override
     public void onBindViewHolder(@NonNull DataAdapterPuntuacion.DataHolder holder, int position) {
-        holder.assignData(cardList.get(position).getNombre()
-                //,cardList.get(position).getIntentos(), cardList.get(position).getImagen(), cardList.get(position).getColor(),position
-                , listener);
+        holder.assignData(cardList.get(position).getNombre(),cardList.get(position).getIntentos(), position, cardList.get(position).getDuracion(), listener);
     }
 
     @Override
@@ -47,23 +46,45 @@ public class DataAdapterPuntuacion extends RecyclerView.Adapter<DataAdapterPuntu
     public class DataHolder extends RecyclerView.ViewHolder {
         //private ImageView imagen;
         private TextView nombre;
-        //private TextView intentos;
-        //private TextView puesto;
+        private TextView intentos;
+        private TextView puesto;
+        private TextView duracion;
         public DataHolder(@NonNull View itemView) {
             super(itemView);
             nombre = (TextView)itemView.findViewById(R.id.textViewNombre);
-            //intentos = (TextView)itemView.findViewById(R.id.textViewIntentos);
-            //imagen = (ImageView)itemView.findViewById(R.id.imageView);
-            //puesto = (TextView)itemView.findViewById(R.id.textViewPuesto);
+            intentos = (TextView)itemView.findViewById(R.id.textViewIntentos);
+            puesto = (TextView)itemView.findViewById(R.id.textViewPuesto);
+            duracion = (TextView)itemView.findViewById(R.id.textViewTiempo);
         }
 
-        public void assignData(String name
-                               //, int intento, Integer img, Integer color, int puest
-                               , OnItemClickListener listener) {
+        public void assignData(String name, int intento, int puest, long tiempo, OnItemClickListener listener) {
             nombre.setText(name);
-            //imagen.setImageResource(img);
-            //puesto.setText(puest);
-            //intentos.setText(intento);
+            puesto.setText(String.valueOf(puest+ 1));
+
+            if (puest == 0) {
+                puesto.setText("");
+                puesto.setBackgroundResource(R.drawable.oro1);
+                //puesto.setBackgroundResource(R.drawable.oro);
+                //puesto.setTextColor(Color.parseColor("#FFFFFF"));
+            } else if (puest == 1) {
+                puesto.setText("");
+                puesto.setBackgroundResource(R.drawable.plata2);
+                //puesto.setBackgroundResource(R.drawable.plata);
+                //puesto.setTextColor(Color.parseColor("#FFFFFF"));
+            } else if (puest == 2) {
+                puesto.setText("");
+                puesto.setBackgroundResource(R.drawable.bronce3);
+                //puesto.setBackgroundResource(R.drawable.bronce);
+                //puesto.setTextColor(Color.parseColor("#FFFFFF"));
+            }
+
+            // Formatear duracion de la partida de milisegundos a segundos/minutos
+            long seconds = (tiempo / 1000) % 60;
+            long minutes = (tiempo / (1000 * 60)) % 60;
+            String tiempoFormateado = String.format("%02d:%02d", minutes, seconds);
+            duracion.setText(tiempoFormateado);
+
+            intentos.setText(String.valueOf(intento));
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

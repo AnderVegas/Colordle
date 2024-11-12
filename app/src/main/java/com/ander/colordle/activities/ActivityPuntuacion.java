@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class ActivityPuntuacion extends AppCompatActivity {
 
@@ -39,36 +40,56 @@ public class ActivityPuntuacion extends AppCompatActivity {
         // Comenzamos la Transaccion
         realm.beginTransaction();
 
+        realm.deleteAll();
+
         // Añadimos elementos a la lista
         list.add(new Puntuacion("Alberto"
-                //, 33, null, null
+                , 3, 23000
         ));
-        list.add(new Puntuacion("Juan"
-                //, 33, null, null
+        // Añadimos elementos a la lista
+        list.add(new Puntuacion("jfdjkfjfjkf"
+                , 3, 220000
         ));
-        list.add(new Puntuacion("gergeerjop"
-                //, 33, null, null
+        // Añadimos elementos a la lista
+        list.add(new Puntuacion("Albjrvkebikerberto"
+                , 4, 100000
         ));
-        list.add(new Puntuacion("Albegregerto"
-                //, 33, null, null
+        // Añadimos elementos a la lista
+        list.add(new Puntuacion("greer"
+                , 5, 2003200
         ));
-        list.add(new Puntuacion("gr5ege5ge5"
-                //, 33, null, null
+        // Añadimos elementos a la lista
+        list.add(new Puntuacion("ikuyiul"
+                , 5, 50000
         ));
-        list.add(new Puntuacion("geegheg"
-                //, 33, null, null
+        // Añadimos elementos a la lista
+        list.add(new Puntuacion("ukyh"
+                , 3, 25000
+        ));
+        // Añadimos elementos a la lista
+        list.add(new Puntuacion("csasd"
+                , 4, 80000
+        ));
+        // Añadimos elementos a la lista
+        list.add(new Puntuacion("ukyh"
+                , 5, 60000
+        ));
+        // Añadimos elementos a la lista
+        list.add(new Puntuacion("csasd"
+                , 33, 110000
         ));
 
-        // ItemCard card = new ItemCard("Imagenes", "476   607.11MB", R.drawable.imagenes);
-        // realm.copyToRealm(card);
+
         realm.copyToRealmOrUpdate(list);
         realm.commitTransaction();
 
-        // Pasamos los resultados de la consulta a una lista "RealmResults"
-        listRealm = realm.where(Puntuacion.class).findAll();
+        // Pasamos los resultados de la consulta a una lista "RealmResults" y ordenamos primero por 'intentos' en orden ascendente, luego por 'duracion' en orden ascendente si 'intentos' es igual
+        listRealm = realm.where(Puntuacion.class)
+                .sort(new String[]{"intentos", "duracion"}, new Sort[]{Sort.ASCENDING, Sort.ASCENDING})
+                .findAll();
 
-        // Inicializamos los dos DataAdapters para tener las dos posibles vistas(Las cuales se cambian con
-        // el switch) y pasamos los datos de la BD de Realm
+
+        // Inicializamos el DataAdapters
         DataAdapterPuntuacion recyclerData = new DataAdapterPuntuacion(listRealm, new DataAdapterPuntuacion.OnItemClickListener() {
             @Override
             public void onItemClick(String string, int position) {
