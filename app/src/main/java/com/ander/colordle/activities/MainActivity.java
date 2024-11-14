@@ -38,14 +38,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Obtén la referencia al botón
-        Button buttonToSecond = findViewById(R.id.button);
+        Button buttonToPuntuacion = findViewById(R.id.buttonPuntuacion);
+        Button buttonToJuego = findViewById(R.id.buttonJuego);
 
         // Configura el evento de clic del botón
-        buttonToSecond.setOnClickListener(new View.OnClickListener() {
+        buttonToPuntuacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Crea un Intent para ir a SecondActivity
                 Intent intent = new Intent(MainActivity.this, ActivityPuntuacion.class);
+                startActivity(intent); // Inicia SecondActivity
+            }
+        });
+
+        buttonToJuego.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Crea un Intent para ir a SecondActivity
+                Intent intent = new Intent(MainActivity.this, ActivityJuego.class);
                 startActivity(intent); // Inicia SecondActivity
             }
         });
