@@ -34,33 +34,33 @@
                 android:orientation="vertical"
                 android:padding="8dp">
 
-                <!-- Incluimos el layoutjuego 5 veces -->
+
                 <include
                     android:id="@+id/layoutJuego1"
                     layout="@layout/layoutjuego" />
+                <!-- Incluimos el layoutjuego 5 veces
+                                <include
+                                    android:id="@+id/layoutJuego2"
+                                    layout="@layout/layoutjuego" />
 
-                <include
-                    android:id="@+id/layoutJuego2"
-                    layout="@layout/layoutjuego" />
+                                <include
+                                    android:id="@+id/layoutJuego3"
+                                    layout="@layout/layoutjuego" />
 
-                <include
-                    android:id="@+id/layoutJuego3"
-                    layout="@layout/layoutjuego" />
+                                <include
+                                    android:id="@+id/layoutJuego4"
+                                    layout="@layout/layoutjuego" />
 
-                <include
-                    android:id="@+id/layoutJuego4"
-                    layout="@layout/layoutjuego" />
-
-                <include
-                    android:id="@+id/layoutJuego5"
-                    layout="@layout/layoutjuego" />
+                                <include
+                                    android:id="@+id/layoutJuego5"
+                                    layout="@layout/layoutjuego" />-->
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewColor"
             android:layout_width="154dp"
             android:layout_height="51dp"
             android:background="@color/white"
@@ -73,8 +73,22 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.774" />
 
+        <TextView
+            android:id="@+id/textViewColorElegido"
+            android:layout_width="154dp"
+            android:layout_height="51dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="#COLOR"
+            app:layout_constraintBottom_toTopOf="@+id/cardViewJuego"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonEnter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Enter"

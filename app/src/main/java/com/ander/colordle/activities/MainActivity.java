@@ -54,9 +54,8 @@ public class MainActivity extends AppCompatActivity {
         buttonToJuego.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Crea un Intent para ir a SecondActivity
                 Intent intent = new Intent(MainActivity.this, ActivityJuego.class);
-                startActivity(intent); // Inicia SecondActivity
+                startActivity(intent);
             }
         });
 

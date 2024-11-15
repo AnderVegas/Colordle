@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.ActivityPuntuacion"></activity>
+        <activity android:name=".activities.ActivityJuego"></activity>
     </application>
 
 </manifest>
